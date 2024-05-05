@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block 'title' %} dashboard {% endblock %}
+
+{% block 'content' %}
+{% load static %}
+
+{% if msg %}
+<h2>{{ msg }} </h2>
+<p style="padding-bottom:120px;">You can order any product anywhere any time.<br>We have four types of toast, two types of bread and<br> two types of donuts available. You can order it.</p>
+
+{% elif msg_address %}
+<h2>{{ msg_address }} </h2>
+
+<p style="padding-bottom:120px;">You order product will deliver to this address.<br>Our most trusted brand in the world<br> two types of donuts available. You can order it.</p>
+{% else %}
+<h1>Logged in successfully</h1>
+<h4>Before order the product add the address in the profile. Icon display besides the logout button.</h4>
+<p style="font-size:20px;font-family:Hawaii 5-0, sans-serif;color:#05386B;" align="right">You can order any product any where through out the world. By just click the button.</p>
+<br>
+<p style="font-size:20px;font-family:Hawaii 5-0, sans-serif;color:#05386B;">
+Bakeries are not just places where bread and pastries are made; they are sanctuaries of flavors, where the warmth of freshly baked goods and the aroma of culinary wonders embrace you. In this essay, we embark on a delectable journey through a bakery that boasts four unique types of toast, two varieties of bread, and two delightful kinds of donuts, each telling a story of craftsmanship and innovation.
+<br><br>
+Toast Varieties<br>
+    <b>1.Ashu Toast</b>: Ashu Toast is a revelation of flavors. This toast is an epitome of culinary artistry, with its layers of perfectly toasted bread encasing a blend of spices, vegetables, and sauces. The toast is crunchy on the outside and delightfully soft on the inside, offering an explosion of taste in every bite. Ashu Toast is a must-try for those seeking a fusion of flavors and textures.
+<br>
+<b>2.Shaktiman Toast</b>: Shaktiman Toast, named after its robustness and energy-boosting qualities, is a hearty breakfast choice. Made from wholesome grains and seeds, it is dense, nutritious, and filling. Each slice is a testament to the bakery's commitment to health and well-being, offering a substantial and nourishing start to the day.
+<br>
+<b>3.Milk Toast</b>: Milk Toast is a nostalgic delight that reminds us of the comfort of childhood mornings. Slices of soft bread are soaked in warm, sweetened milk, creating a warm and soothing experience. It's the perfect embodiment of simplicity and pure comfort.
+<br>
+<b>4.Special Toast</b>: The Special Toast is a bakery's masterpiece, a toast that encapsulates creativity and culinary excellence. Every ingredient is meticulously chosen and prepared, from premium bread to an array of toppings and seasonings. Special Toast is a gastronomic adventure that surprises the palate with its exquisite blend of flavors.
+<br><br>
+<b>Bread Varieties</b>
+<br>
+<b>1.Milk Bread</b>: Milk Bread is a classic favorite for its softness and subtle sweetness. Made with the finest ingredients, including milk and butter, it's a versatile bread perfect for sandwiches, toast, or simply enjoyed on its own. The silky texture and gentle flavor make it a crowd-pleaser.
+<br>
+<b>2.Zoya Bread</b>: Zoya Bread is a bakery's dedication to diversity and uniqueness. This bread incorporates exotic ingredients, herbs, and spices, resulting in a distinctive flavor profile. It's a bread for those who appreciate bold and adventurous tastes.
+<br>
+    <br>
+<b>Donut Varieties</b>
+<br>
+<b>1.Cream Donuts</b>: Cream Donuts are indulgence personified. These pillowy pastries are filled with a luscious cream that oozes out with every bite. Whether it's vanilla, chocolate, or fruit-flavored, the cream inside elevates the donut to a dessert lover's dream.
+<br>
+<b>2.Round Donuts</b>: The simplicity of Round Donuts is their charm. These perfectly shaped, ringed donuts are covered in a variety of glazes, from classic sugar to rich chocolate. The appeal of a Round Donut lies in its familiar, comforting taste.
+
+</p>
+{% endif %}
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% block 'title' %} Login {% endblock %}
+
+{% load static %}
+{% block 'content' %}
+
+
+
+<br>
+
+<div class="container" align="center">
+    <div class="row">
+     <div class="card  bg-light" style="max-width: 400px;" align="center">
+      <div class="card-body">
+    <h4 align="center">Login to the account</h4>
+          <table class="table" style="margin-top:20px;">
+    <form action="{% url 'admin_login' %}" method="POST">
+        {% csrf_token %}
+        <tr>
+            <td>
+                Username
+            </td>
+            <td>
+                <input type="text" name="p1" required>
+            </td>
+            </tr>
+        <tr>
+            <td>
+                Password
+            </td>
+            <td>
+                <input type="password" name="p2" required>
+            </td>
+            </tr>
+    <tr>
+        <td style="color:grey;">
+            CAPTCHA
+        </td>
+        <td >
+            <input type="text" name="captcha" value="{{ cap }}" readonly>
+        </td>
+    </tr>
+        <tr>
+            <td style="color:grey;">
+                Code
+            </td>
+            <td>
+                <input type="number" name="p3">
+            </td>
+        </tr>
+    <tr>
+        <td></td>
+        <td style="color:red;font-size:15px;padding-left:20px;">
+              {% if msg1 %}
+        {{ msg1 }}
+    {% endif %}
+        </td>
+    </tr>
+
+        <tr>
+            <td>
+        </td>
+            <td align="right" style="padding-top:20px;"><input type="submit" value="Login" class="btn btn-success"></td></tr>
+    </form>
+</table>
+
+
+      </div>
+
+     </div>
+
+
+         <div class="card  bg-light" style="max-width: 400px;" align="center">
+      <div class="card-body">
+    <h4 align="center">SignUp</h4>
+
+          <h6 aling="center" style="padding-top:30px;">SignUp to the account to processed the order</h6>
+          <a href="{% url 'email' %}" class="btn btn-success" style="margin-top:10px;">SignUp</a>
+
+
+      </div>
+
+     </div>
+        </div>
+</div>
+
+
+{% endblock %}

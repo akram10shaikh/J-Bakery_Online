@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block 'title' %} Profile {% endblock %}
+
+{% block 'content' %}
+{% load static %}
+
+<div class="container bg-light" style="padding:20px;">
+    <div class="row">
+        <div class="col-sm-6">
+
+
+        <h3 style="color:#05286B;">Profile</h3>
+
+
+
+<p style="font-size:20px;padding-left:25px;">
+
+
+    <b>First Name</b> :   {{ user.first_name }}                <br>
+    <b>Last Name</b>  :   {{ user.last_name }}              <br>
+  <b>  Email      :</b>   {{ user.email }}                 <br>
+  <b>  Username   :</b>   {{ user.username }}               <br>
+<!--    Password   :   {{ user.password }}                 <br>-->
+
+</p>
+
+</div>
+    <div class="col-sm-6">
+          <h3 style="color:#05286B;">Address</h3>
+
+        {% for ad in add %}
+                <p style="font-size:20px;padding-left:25px;">
+                <b>Address</b> :   {{ ad.address }}                <br>
+                <b>Pincode</b>  :   {{ ad.pin }}    <br>
+                <b>Phone</b>  :   {{ ad.phone }}    <br>
+        {% empty %}
+        <p>No Address is added</p>
+        <a href="{% url 'add_address' %}">Add address</a>
+        {% endfor %}
+
+</div>
+    </div>
+</div>
+    <br>
+<br>
+<br>
+
+{% endblock %}

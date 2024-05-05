@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block 'title' %} Order {% endblock %}
+
+{% block 'content' %}
+{% load static %}
+
+<div class="container bg-light">
+<h2 align="center" style="padding-top:10px;padding-bottom:20px;">Orders</h2>
+
+
+
+{% for i in product %}
+<table style="font-size:20px;" class="table">
+  <tr>
+    <th>No</th>
+    <td>{{ forloop.counter }}</td>
+  </tr>
+      {% for it in i.item.all %}
+  <tr>
+  <th>Item {{ forloop.counter }}</th>
+
+
+      <td> {{ it.value }}  </td>
+        <td>Quantity {{ it.quantity }}</td>
+  </tr>
+    {% endfor %}
+
+
+  <tr>
+    <th>Amount</th>
+    <td>{{ i.price }}</td>
+   </tr>
+  <tr>
+    <th>Status</th>
+     <td><a href="{% url 'order_status' i.no %}">Status</a> </td>
+  </tr>
+
+{% empty %}
+    <h3 align="center" style="padding:60px;">No order is placed till now</h3>
+</table>
+  {% endfor %}
+
+
+</div>
+
+{% endblock %}

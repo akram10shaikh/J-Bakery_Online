@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+
+{% block 'title' %} Checkout {% endblock %}
+
+{% block 'content' %}
+{% load static %}
+
+
+
+<div class="container bg-light" align="center">
+  <h2 align="center" style="padding-top:20px">Payment </h2>
+    <div class="row">
+        <div class="col-sm-6">
+  <table class=" table-bordered" style="font-size:20px;">
+    <tr align="center" >
+     {% if cart %}
+      <th style="padding:10px;">No</th>
+    <th style="padding:10px;">Items</th>
+    <th style="padding:10px;">Photo</th>
+        <th style="padding:10px;">Quantity</th>
+      <th style="padding:10px;">Prices</th>
+    </tr>
+
+     {% for d in cart %}
+
+    <tr align="center">
+      <td>{{ forloop.counter }}</td>
+      <td>{{ d.item }}</td>
+      <td><img src="/media/{{ d.img }}" width="50" height="50"> </td>
+      <td>{{ d.quantity }}</td>
+        <td>{{ d.amount }}</td>
+    </tr>
+
+    {% endfor %}
+
+  <tr align="center">
+      <th></th>
+      <th></th>
+      <th></th>
+      <th>Total</th>
+      <th>{{ total }}</th>
+  </tr>
+
+      <tr align="center">
+      <th></th>
+      <th></th>
+          <th></th>
+      <th>GST 18% </th>
+      <th>{{ gst }}</th>
+  </tr>
+
+      <tr align="center">
+      <th></th>
+      <th></th>
+          <th></th>
+      <th>Courier Charge</th>
+     <th>{{ courier }}</th>
+  </tr>
+      <tr align="center">
+      <th></th>
+      <th></th>
+          <th></th>
+      <th>Grand Total</th>
+     <th>{{ gtotal }}</th>
+      </tr>
+    {% else %}
+
+    <h3 style="padding-top:100px;padding-bottom:100px;">Cart is empty. Add the product to checkout.</h3>
+
+{% endif %}
+  </table>
+</div>
+
+  {% for p in add %}
+    <div class="col-sm-6" align="left">
+
+  <table style="font-size:20px;" class="table-bordered" >
+    <tr>
+    <td><b>Name</b></td>
+      <td style="padding-left:10px;">{{ request.user.last_name}} {{ request.user }} </td>
+    </tr>
+
+    <tr>
+      <td><b>Address</b> </td>
+      <td style="padding-left:10px;" colspan="2">{{ p.address }}</td>
+    </tr>
+
+      <tr>
+      <td><b>Pincode</b> </td>
+      <td style="padding-left:10px;">{{ p.pin }}</td>
+    </tr>
+
+      <tr>
+      <td><b>Phone</b> </td>
+      <td style="padding-left:10px;">{{ p.phone }}</td>
+    </tr>
+
+  </table>
+        </div>
+
+
+</div>
+ {% endfor %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<a href="{% url 'order_new' %} " class="btn btn-success" style="margin-top:20px;margin-bottom:10px;">Checkout </a>
+
+    <a href="https://cosmofeed.com/vp/654f49e7ce9bcc001e30e43c " class="btn btn-success" style="margin-top:20px;margin-bottom:10px;">Payment</a>
+
+
+        </div>
+    </div>
+
+
+</div>
+
+
+
+
+{% endblock %}

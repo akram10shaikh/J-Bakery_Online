@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block 'title' %} Login {% endblock %}
+
+{% load static %}
+{% block 'content' %}
+
+<div class="container bg-white" style="max-width: 400px;padding-top:30px;" align="center">
+    <h3>OTP Verify</h3>
+    <h5 style="padding-top:50px;padding-bottom:10px;">
+        <form action="{% url 'check' %}" method="POST">
+            {% csrf_token %}
+            <table class="table bg-dark">
+
+            <tr>
+                <td>Email</td>
+                <td><input type="email" name="email" value="{{ email }}" readonly></td>
+            </tr>
+                <tr>
+                    <td>OTP</td>
+                    <td><input type="number" name="n1" required ></td>
+                </tr>
+            <tr>
+                <td></td>
+                <td align="right" style="padding-right:50px;">
+         <input type="Submit" class="btn btn-success" >
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>{% if msg %}
+        <h6 style="color:red;margin-bottom:20px">{{ msg }}</h6>
+        {% endif %}</td>
+            </tr>
+
+   </table>
+    </form>
+    </h5>
+
+
+</div>
+
+{% endblock %}

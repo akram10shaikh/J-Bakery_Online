@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block 'title' %} Order_status {% endblock %}
+
+{% block 'content' %}
+{% load static %}
+<style>
+  .custom-progress {
+    height: 50px; /* Adjust the height as needed */
+  }
+</style>
+
+<div class="container bg-light" style="padding-bottom:40px;">
+<h2 align="center" style="padding-top:20px;">Orders Status</h2>
+<div style="padding-top:40px;"></div>
+<div class="container progress custom-progress" >
+  <div class="progress-bar progress-bar-striped progress-bar-animated {{ bg }} active" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width:{{ value_size }}%;"></div>
+</div>
+
+  <h4 align="center" style="padding-top:30px;">Status </h4>
+  <h3 align="center">{{ value }} </h3>
+
+</div>
+
+
+{% endblock %}

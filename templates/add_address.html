@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block 'title' %} Add Address {% endblock %}
+
+{% block 'content' %}
+{% load static %}
+
+<h4>Add address</h4>
+
+<form action="{% url 'save_address' %}" method="POST">
+        {% csrf_token %}
+    <table>
+        <tr>
+            <td>Address</td>
+            <td><textarea name="add" id="big_text_id" rows="3" cols="30"></textarea></td>
+        </tr>
+        <tr>
+            <td>Pincode</td>
+            <td><input type="number" name="pin"></td>
+        </tr>
+    <tr>
+        <td>Phone No</td>
+            <td><input type="number" name="phone"></td>
+    </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="submit" class="btn btn-success"> </td>
+        </tr>
+    </table>
+
+</form>
+
+
+{% endblock %}

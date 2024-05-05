@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% block 'title' %} Index {% endblock %}
+
+{% load static %}
+{% block 'content' %}
+
+<h2 align="center" style="padding-top:10px;padding-bottom:10px;">TOAST</h2>
+<div class="row text-center">
+  {% for p in product %}
+  {% if forloop.counter <= 4 %}
+  <div class="col-sm-3">
+    <div class="card  bg-light">
+      <div class="card-body">
+        <img src="/media/{{ p.photo }}" class="card-img-top" alt="abc" style="height:200px;">
+        <h5 class="card-title">{{ p.item }}</h5>
+        <p class="card-text">{{ p.des }}  </p>
+        {% if user.is_authenticated %}
+
+ <a href="{% url 'add_to_cart' p.id %}" id="link1" class="btn btn-success" onclick="showAlert('Product added in the cart')">Add Cart</a>
+
+        {% else %}
+           <a href="" class="btn btn-success"  id="link2" onclick="showAlert('Login the account to add the cart')" >Add Cart</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% endif %}
+  {% endfor %}
+</div>
+
+<h2 align="center" style="padding-top:10px;padding-bottom:10px;">DONUTS</h2>
+<div class="card bg-light" >
+ {% for m in product %}
+  {% if forloop.counter == 5 %}
+  <div class="row">
+
+    <div class="col-md-2">
+      <img src="/media/{{ m.photo }}" class="img-fluid rounded-start" alt="Cream Donuts" style="height:260px;padding-top:10px;padding-left:5px;">
+    </div>
+    <div class="col-md-4">
+      <div class="card-body">
+        <h5 class="card-title">{{ m.item }}</h5>
+        <p class="card-text">{{ m.des }}</p>
+        {% if user.is_authenticated %}
+
+         <a href="{% url 'add_to_cart' m.id %}" id="link3" class="btn btn-success" onclick="showAlert('Product added in the cart')">Add Cart</a>
+
+        {% else %}
+           <a href="" class="btn btn-success"  id="link4" onclick="showAlert('Login the account to add the cart')" >Add Cart</a>
+        {% endif %}
+      </div>
+    </div>
+ {% endif %}
+  {% endfor %}
+
+    {% for m in product %}
+  {% if forloop.counter == 6 %}
+
+    <div class="col-md-2">
+      <img src="/media/{{ m.photo }}" class="img-fluid rounded-start" alt="Round Donuts" style="height:260px;padding-top:10px">
+    </div>
+    <div class="col-md-4">
+      <div class="card-body">
+        <h5 class="card-title">{{ m.item }}</h5>
+        <p class="card-text">{{ m.des }}</p>
+      {% if user.is_authenticated %}
+
+  <a href="{% url 'add_to_cart' m.id %}" id="link5" class="btn btn-success" onclick="showAlert('Product added in the cart')">Add Cart</a>
+
+        {% else %}
+          <a href="" class="btn btn-success"  id="link6" onclick="showAlert('Login the account to add the cart')" >Add Cart</a>
+        {% endif %}
+      </div>
+    </div>
+
+  </div>
+{% endif %}
+  {% endfor %}
+</div>
+
+
+<h2 align="center" style="padding-top:10px;padding-bottom:10px;">BREADS</h2>
+<div class="row text-center">
+  {% for m in product %}
+  {% if forloop.counter >= 7 %}
+  <div class="col-sm-6">
+    <div class="card  bg-light">
+      <div class="card-body">
+        <h5 class="card-title">{{ m.item }}</h5>
+        <p class="card-text">{{ m.des }} </p>
+        <img src="/media/{{ m.photo }} " class="card-img-top" alt="Milk Bread" style="height:200px;padding-bottom:10px;">
+
+          {% if user.is_authenticated %}
+
+  <a href="{% url 'add_to_cart' m.id %}" id="link7" class="btn btn-success" onclick="showAlert('Product added in the cart')">Add Cart</a>
+
+        {% else %}
+          <a href="" class="btn btn-success"  id="link8" onclick="showAlert('Login the account to add the cart')" >Add Cart</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% endif %}
+  {% endfor %}
+</div>
+
+
+
+
+
+<script>
+        function showAlert(message) {
+            alert(message);
+        }
+</script>
+{% endblock %}

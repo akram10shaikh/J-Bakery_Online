@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block 'title' %} Login {% endblock %}
+
+{% load static %}
+{% block 'content' %}
+
+<div class="container bg-light" style="max-width: 400px;padding-top:30px;" align="center">
+    <h3>Email Verification</h3>
+    <h5 style="padding-top:50px;padding-bottom:50px;">
+    <form action="{% url 'sendmail' %}" method="POST">
+            {% csrf_token %}
+        Email <input type="email" name="t1" required><br>
+        <input type="Submit" class="btn btn-success" style="margin:20px;padding:10px;">
+    </form>
+        </h5>
+</div>
+
+{% endblock %}
